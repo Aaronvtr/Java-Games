@@ -26,15 +26,16 @@ public class snakemain {
 			if(meineTastatur.wurdeGedrueckt()) {
 			switch(meineTastatur.zeichen())
 	        {       
-	            case 'w': {snake.moveup(); Hilfe.pause(500); break;}
-	            case 'W': {snake.moveup(); Hilfe.pause(500); break;}
-	            case 'a': {snake.moveleft(); Hilfe.pause(500); break;}
-	            case 'A': {snake.moveleft(); Hilfe.pause(500); break;}
-	            case 's': {snake.movedown(); Hilfe.pause(500); break;}
-	            case 'S': {snake.movedown(); Hilfe.pause(500); break;}
-	            case 'd': {snake.moveright(); Hilfe.pause(500); break;}
-	            case 'D': {snake.moveright(); Hilfe.pause(500); break;}
+	            case 'w': {snake.moveup(); break;}
+	            case 'W': {snake.moveup(); break;}
+	            case 'a': {snake.moveleft(); break;}
+	            case 'A': {snake.moveleft(); break;}
+	            case 's': {snake.movedown(); break;}
+	            case 'S': {snake.movedown(); break;}
+	            case 'd': {snake.moveright(); break;}
+	            case 'D': {snake.moveright(); break;}
 	        }
+				Hilfe.pause(500);
 			} else if(direction == 1){
 				snake.moveup();
 				Hilfe.pause(500);
@@ -49,13 +50,23 @@ public class snakemain {
 				Hilfe.pause(500);
 			}
 			if(snake.xSnake == apl.xApfel && snake.ySnake == apl.yApfel) {
-				apl.neuerApfel();
+				apl.neuerApfel(1);
 				snake.lenght++;
+			}
+			if(snake.xSnake > 900 || snake.xSnake == -100 || snake.ySnake > 900 || snake.ySnake == -100){
+				resetgame();
 			}
 			snaketick++;
 			}
 		}
-	
+	public void resetgame(){
+		snake.lenght = 1;
+		snaketick = 0;
+		meinFenster.loescheAlles();
+		snake.xSnake = 300;
+		snake.ySnake = 300;
+		apl.neuerApfel(0);
+	}
 	
 	public static void main(String[] args) {
 	snakemain s = new snakemain();

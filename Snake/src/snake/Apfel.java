@@ -20,16 +20,19 @@ public class Apfel {
 		snm.meinStift.dreheBis(0);
 		snm.meinStift.zeichneRechteck(100, 100);
 	}
-	public void neuerApfel() {
-		snm.meinStift.bewegeAuf(xApfel, yApfel);
-		snm.meinStift.setzeFarbe(Farbe.GRUEN);
-		snm.meinStift.setzeFuellMuster(Muster.GEFUELLT);
-		snm.meinStift.dreheBis(0);
-		snm.meinStift.zeichneRechteck(100, 100);
-		snm.meinStift.bewegeAuf(xApfel = Hilfe.zufall(0, 9) * 100,yApfel = Hilfe.zufall(0, 9) * 100);
-		snm.meinStift.setzeFarbe(Farbe.ROT);
-		snm.meinStift.setzeFuellMuster(Muster.GEFUELLT);
-		snm.meinStift.dreheBis(0);
-		snm.meinStift.zeichneRechteck(100, 100);
+	public void neuerApfel(int i) {
+		if (i == 1) {
+			snm.meinStift.bewegeAuf(xApfel, yApfel);
+			snm.meinStift.setzeFarbe(Farbe.GRUEN);
+			snm.meinStift.setzeFuellMuster(Muster.GEFUELLT);
+			snm.meinStift.dreheBis(0);
+			snm.meinStift.zeichneRechteck(100, 100);
+		}
+			snm.meinStift.bewegeAuf(xApfel = Hilfe.zufall(0, 9) * 100, yApfel = Hilfe.zufall(0, 9) * 100);
+			snm.meinStift.setzeFarbe(Farbe.ROT);
+			snm.meinStift.setzeFuellMuster(Muster.GEFUELLT);
+			snm.meinStift.dreheBis(0);
+			snm.meinStift.zeichneRechteck(100, 100);
+
 	}
 }

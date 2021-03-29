@@ -16,7 +16,7 @@ public class Snake {
 		xSnake = 400;
 		ySnake = 400;
 		snm.direction = 1;
-		standort = new int[2][99];
+		standort = new int[2][9999];
 	}
 
 	public void zeichneSnake(int x, int y) {
