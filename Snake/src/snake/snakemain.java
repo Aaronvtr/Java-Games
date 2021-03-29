@@ -10,6 +10,10 @@ public class snakemain {
 	private Snake snake;
 	public int direction;
 	public int snaketick;
+	public TextFeld Score;
+	public TextFeld Highscore;
+	private int currentscore = 0;
+	private int bestscore = 0;
 	
 	public snakemain() {
 		meinFenster = new Fenster(1000,1000);
@@ -17,11 +21,19 @@ public class snakemain {
 		apl = new Apfel(this);
 		snake = new Snake(this);
 		meineTastatur = new Tastatur();
-		snaketick = 0;
+		Score = new TextFeld();
+		Highscore = new TextFeld();
+		Score.setzePosition(0,0);
+		Highscore.setzePosition(800,0);
+		Score.setzeSchriftGroesse(20);
+		Score.setzeGroesse(200,40);
+		Highscore.setzeSchriftGroesse(20);
+		Highscore.setzeGroesse(200,40);
 	}
 	
 	public void fuehreAus() {
 		apl.zeichneApfel(Hilfe.zufall(0, 9) * 100,Hilfe.zufall(0, 9) * 100);
+		Highscore.setzeText("Highscore: 0");
 		while(true) {
 			if(meineTastatur.wurdeGedrueckt()) {
 			switch(meineTastatur.zeichen())
@@ -52,14 +64,21 @@ public class snakemain {
 			if(snake.xSnake == apl.xApfel && snake.ySnake == apl.yApfel) {
 				apl.neuerApfel(1);
 				snake.lenght++;
+				currentscore++;
 			}
 			if(snake.xSnake > 900 || snake.xSnake == -100 || snake.ySnake > 900 || snake.ySnake == -100){
 				resetgame();
 			}
+			Score.setzeText("Current Score: " + currentscore);
 			snaketick++;
 			}
 		}
 	public void resetgame(){
+		if(bestscore < currentscore){
+			bestscore = currentscore;
+		}
+		Highscore.setzeText("Highscore: " + bestscore);
+		currentscore = 0;
 		snake.lenght = 1;
 		snaketick = 0;
 		meinFenster.loescheAlles();
