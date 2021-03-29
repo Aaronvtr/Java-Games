@@ -8,7 +8,7 @@ public class Snake {
 	public int xSnake;
 	public int ySnake;
 	public int lenght;
-	private int[][] standort;
+	public int[][] standort;
 
 	public Snake(snakemain psnm) {
 		snm = psnm;

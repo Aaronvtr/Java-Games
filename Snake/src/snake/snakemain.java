@@ -66,6 +66,12 @@ public class snakemain {
 				snake.lenght++;
 				currentscore++;
 			}
+
+			for(int i = snaketick - snake.lenght + 1; i < snaketick; i++ ){
+				if(snake.standort[0][i] == snake.xSnake && snake.standort[1][i] == snake.ySnake){
+					resetgame();
+				}
+			}
 			if(snake.xSnake > 900 || snake.xSnake == -100 || snake.ySnake > 900 || snake.ySnake == -100){
 				resetgame();
 			}
@@ -73,6 +79,8 @@ public class snakemain {
 			snaketick++;
 			}
 		}
+		
+
 	public void resetgame(){
 		if(bestscore < currentscore){
 			bestscore = currentscore;
