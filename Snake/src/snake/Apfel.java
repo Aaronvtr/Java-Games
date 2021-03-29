@@ -22,7 +22,7 @@ public class Apfel {
 	}
 	public void neuerApfel() {
 		snm.meinStift.bewegeAuf(xApfel, yApfel);
-		snm.meinStift.setzeFarbe(Farbe.WEISS);
+		snm.meinStift.setzeFarbe(Farbe.GRUEN);
 		snm.meinStift.setzeFuellMuster(Muster.GEFUELLT);
 		snm.meinStift.dreheBis(0);
 		snm.meinStift.zeichneRechteck(100, 100);
