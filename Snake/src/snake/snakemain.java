@@ -7,7 +7,7 @@ public class snakemain {
 	public Stift meinStift;
 	public Tastatur meineTastatur;
 	private Apfel apl;
-	private Snake snake;
+	public Snake snake;
 	public int direction;
 	public int snaketick;
 	public TextFeld Score;
